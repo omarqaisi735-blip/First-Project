@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "color": "red",
+    "shape": "cube",
+    "weight_g": 120,
+    "temperature_c": 42.5
+  },
+  {
+    "id": 2,
+    "color": "blue",
+    "shape": "sphere",
+    "weight_g": 80,
+    "temperature_c": 21.0
+  },
+  {
+    "id": 3,
+    "color": "red",
+    "shape": "sphere",
+    "weight_g": 95,
+    "temperature_c": 55.0
+  },
+  {
+    "id": 4,
+    "color": "green",
+    "shape": "cube",
+    "weight_g": 200,
+    "temperature_c": 19.5
+  },
+  {
+    "id": 5,
+    "color": "blue",
+    "shape": "cube",
+    "weight_g": 60,
+    "temperature_c": 20.0
+  },
+  {
+    "id": 6,
+    "color": "red",
+    "shape": "cube",
+    "weight_g": 110,
+    "temperature_c": 60.0
+  }
+]
