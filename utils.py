@@ -1,28 +1,3 @@
-import json
-import os
-import sys
-
-
-def load_test_data(path):
-    """
-    Load test data from a JSON file.
-    Args:
-        path (str): Path to the JSON file.
-
-    Returns:
-        list: List of objects loaded from the JSON file.
-    """
-
-    if not os.path.exists(path):
-        raise FileNotFoundError(
-            f"Test data file not found: {os.path.abspath(path)}"
-        )
-
-    with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-        return data.get("items", [])
-
-
 def classify(obj: dict):
     """
     Classify an object into the correct bin based on
