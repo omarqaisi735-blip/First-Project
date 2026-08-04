@@ -1,9 +1,10 @@
 import json
 import os
 from datetime import datetime
+import argparse
 
-from utils import load_test_data, filter, classify, DEFAULT_DATA
-from inventory import Inventory
+from utils import load_test_data, filter, classify
+from classes.inventory import Inventory
 
 
 def main():
@@ -11,7 +12,12 @@ def main():
     Main function to run the inventory system.
     """
 
-    objects = load_test_data()
+
+    parser = argparse.ArgumentParser(description="inventory system")
+    parser.add_argument("file_path", type=str, help="the target file path to load data from")
+    args = parser.parse_args()
+    objects = load_test_data(args.file_path)
+
 
     objects.append(
         {"id": 7, "color": "red", "weight_g": 90}
@@ -52,7 +58,7 @@ def main():
 
     current_time = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
 
-    file_name = os.path.splitext(DEFAULT_DATA)[0]
+    file_name = os.path.splitext(args.file_path)[0]
 
     output_file = f"{file_name}_tested_at_{current_time}.json"
 

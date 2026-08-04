@@ -1,4 +1,4 @@
-[
+{ "items": [
   {
     "id": 1,
     "color": "red",
@@ -41,4 +41,4 @@
     "weight_g": 110,
     "temperature_c": 60.0
   }
-]
+]}

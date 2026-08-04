@@ -25,7 +25,8 @@ def load_test_data(path=None):
         )
 
     with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+        data = json.load(f)
+        return data.get("items", [])
 
 
 def classify(obj: dict):
@@ -53,7 +54,7 @@ def classify(obj: dict):
         return "general_bin"
 
 
-def filter(objects: list[dict], min_weight=None, color=None):
+def filter(objects: list[dict], min_weight = None, color=None):
     """
     Filter objects by minimum weight and/or color.
 
@@ -65,6 +66,11 @@ def filter(objects: list[dict], min_weight=None, color=None):
     Returns:
         list: Filtered objects.
     """
+
+    if min_weight < 0:
+        raise ValueError("Min Weight must be non-ngatve")
+
+    
 
     result = []
 
