@@ -2,22 +2,16 @@ import json
 import os
 import sys
 
-DEFAULT_DATA = "data.json"
 
-
-def load_test_data(path=None):
+def load_test_data(path):
     """
     Load test data from a JSON file.
-    If no path is provided, the default file is used.
-
     Args:
         path (str): Path to the JSON file.
 
     Returns:
         list: List of objects loaded from the JSON file.
     """
-
-    path = path or (sys.argv[1] if len(sys.argv) > 1 else DEFAULT_DATA)
 
     if not os.path.exists(path):
         raise FileNotFoundError(
