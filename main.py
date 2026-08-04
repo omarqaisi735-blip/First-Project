@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 import argparse
 
-from utils import load_test_data, filter, classify
+from utils import filter, classify
 from classes.inventory import Inventory
 
 
@@ -16,7 +16,12 @@ def main():
     parser = argparse.ArgumentParser(description="inventory system")
     parser.add_argument("file_path", type=str, help="the target file path to load data from")
     args = parser.parse_args()
-    objects = load_test_data(args.file_path)
+    if not os.path.exists(args.file_path):
+        raise FileNotFoundError(f"File not found: {os.path.abspath(args.file_path)}")
+
+    with open(args.file_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+        objects = data.get("items", [])
 
 
     objects.append(
